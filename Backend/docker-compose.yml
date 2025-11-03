@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  backend:
+    build: .
+    container_name: octo_backend
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+    depends_on:
+      - db
+    command: ["node", "dist/index.js"]
+    restart: always
+
+  db:
+    image: postgres:15
+    container_name: octo_db
+    restart: always
+    environment:
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: dev1234
+      POSTGRES_DB: fullstack_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
