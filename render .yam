@@ -1,0 +1,26 @@
+services:
+  # 🟦 BACKEND (Node + Express + TypeScript)
+  - type: web
+    name: aprimorado-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+
+  # 🟨 FRONTEND (React + Vite)
+  - type: static
+    name: aprimorado-frontend
+    rootDir: front-end
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://aprimorado-backend.onrender.com
