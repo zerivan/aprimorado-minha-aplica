@@ -1,17 +1,13 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "sourceMap": false,
-    "removeComments": true
+    "outDir": "./dist",
+    "module": "CommonJS",
+    "target": "ES2019",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "test",
-    "**/*.spec.ts",
-    "**/*.test.ts"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "tests", "**/*.spec.ts", "**/*.test.ts"]
 }
