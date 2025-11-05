@@ -1,9 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
+import React from "react";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+function App() {
+  return (
+    <div style={{ fontFamily: "Arial, sans-serif", textAlign: "center", marginTop: "50px" }}>
+      <h1>🚀 Frontend conectado com sucesso!</h1>
+      <p>Este projeto React + Vite está pronto e funcionando no Render.</p>
+    </div>
+  );
+}
+
+export default App;
